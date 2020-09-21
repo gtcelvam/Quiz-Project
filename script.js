@@ -11,7 +11,8 @@ const questionElement = document.getElementById("question");
 // Id name of Answer buttons
 const answerButtonElement = document.getElementById("answer-buttons")
 // Creating two constants to shuffle questions and to give index
-let shuffledQuestions, currentQuestionIndex
+let shuffledQuestions, currentQuestionIndex;
+let num = 0;
 
 
 /* Clicking start to button  */
@@ -69,15 +70,16 @@ function selectAnswer(e){
         startButton.classList.remove("hide");
         startButton.addEventListener("click",()=>{
             ScoreBoard.classList.add("hide");
+            num = 0;
         })
+        
     }
     Scores(correct);
 }   
 function Scores(correct){
-    let num = 0;
     if(correct){
         num++;
-        ScoreBoard.textContent = num;
+        ScoreBoard.textContent = `Score : ${num}`;
     }
     ScoreBoard.classList.remove("hide");
 }
