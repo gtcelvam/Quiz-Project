@@ -62,6 +62,7 @@ function selectAnswer(e){
     Array.from(answerButtonElement.children).forEach(button=>{
         setStatusClass(button,button.dataset.correct);
     })
+    Scores(correct);
     if(shuffledQuestions.length > currentQuestionIndex + 1){
         nextButton.classList.remove("hide");
     }
@@ -70,13 +71,12 @@ function selectAnswer(e){
         startButton.classList.remove("hide");
         startButton.addEventListener("click",()=>{
             ScoreBoard.classList.add("hide");
-            num = 0;
         })
         
     }
-    Scores(correct);
+    
 }   
-function Scores(correct){
+function Scores(correct,wrong){
     if(correct){
         num++;
         ScoreBoard.textContent = `Score : ${num}`;
